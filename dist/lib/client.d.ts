@@ -14,6 +14,13 @@
  * @property {number} [silence_duration_ms]
  */
 /**
+ * @typedef {Object} TurnDetectionSemanticVadType
+ * @property {"semantic_vad"} type
+ * @property {boolean} [create_response]
+ * @property {boolean} [interrupt_response]
+ * @property {"auto"|"low"|"medium"|"high"} [eagerness]
+ */
+/**
  * Tool definitions
  * @typedef {Object} ToolDefinitionType
  * @property {"function"} [type]
@@ -235,9 +242,9 @@ export class RealtimeClient extends RealtimeEventHandler {
     disconnect(): void;
     /**
      * Gets the active turn detection mode
-     * @returns {"server_vad"|null}
+     * @returns {"server_vad"|"semantic_vad"|null}
      */
-    getTurnDetectionType(): "server_vad" | null;
+    getTurnDetectionType(): "server_vad" | "semantic_vad" | null;
     /**
      * Add a tool and handler
      * @param {ToolDefinitionType} definition
@@ -320,6 +327,12 @@ export type TurnDetectionServerVadType = {
     threshold?: number;
     prefix_padding_ms?: number;
     silence_duration_ms?: number;
+};
+export type TurnDetectionSemanticVadType = {
+    type: "semantic_vad";
+    create_response?: boolean;
+    interrupt_response?: boolean;
+    eagerness?: "auto" | "low" | "medium" | "high";
 };
 /**
  * Tool definitions
