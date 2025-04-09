@@ -37,7 +37,7 @@
  * @property {AudioFormatType} [input_audio_format]
  * @property {AudioFormatType} [output_audio_format]
  * @property {AudioTranscriptionType|null} [input_audio_transcription]
- * @property {TurnDetectionServerVadType|null} [turn_detection]
+ * @property {TurnDetectionServerVadType|TurnDetectionSemanticVadType|null} [turn_detection]
  * @property {ToolDefinitionType[]} [tools]
  * @property {"auto"|"none"|"required"|{type:"function",name:string}} [tool_choice]
  * @property {number} [temperature]
