@@ -354,7 +354,7 @@ export type SessionResourceType = {
     input_audio_format?: AudioFormatType;
     output_audio_format?: AudioFormatType;
     input_audio_transcription?: AudioTranscriptionType | null;
-    turn_detection?: TurnDetectionServerVadType | null;
+    turn_detection?: TurnDetectionServerVadType | TurnDetectionSemanticVadType | null;
     tools?: ToolDefinitionType[];
     tool_choice?: "auto" | "none" | "required" | {
         type: "function";
